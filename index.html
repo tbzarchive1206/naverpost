@@ -53,6 +53,7 @@
     search.addEventListener("input",e=>{state.query=e.target.value.trim().toLocaleLowerCase();state.shown=24;renderCards()});categoryFilter.addEventListener("change",e=>{state.category=e.target.value;state.shown=24;renderTabs();renderCards()});sortFilter.addEventListener("change",e=>{state.sort=e.target.value;renderCards()});tabs.addEventListener("click",e=>{const b=e.target.closest("button[data-category]");if(!b)return;state.category=b.dataset.category;categoryFilter.value=state.category;state.shown=24;renderTabs();renderCards()});cards.addEventListener("click",e=>{const target=e.target.closest("[data-open]");if(target)openGallery(target.dataset.open)});loadMore.addEventListener("click",()=>{state.shown+=24;renderCards()});$("#galleryMore").addEventListener("click",()=>{state.photoShown+=24;renderPhotos()});$("#closeDialog").addEventListener("click",()=>dialog.close());dialog.addEventListener("close",()=>{document.body.classList.remove("modal-open");state.current=null});dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
     $("#galleryCount").textContent=ARCHIVE_DATA.galleries.length.toLocaleString("en-US");$("#photoCount").textContent=ARCHIVE_DATA.galleries.reduce((n,g)=>n+g.images.length,0).toLocaleString("en-US");populateFilters();renderCards();
   </script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "86b44fc0df8847b9a0b9c48b6766cd38"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
 
